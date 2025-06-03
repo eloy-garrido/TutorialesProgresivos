@@ -355,22 +355,6 @@ public class VentanaBuilder {
 - 🤔 Asegúrate de entender todos los conceptos nuevos
 - 🆘 Si algo no funciona, revisa la sección de solución de problemas
 
-### **👨‍🏫 Para Profesores:**
-
-#### **Preparación de Clases:**
-- 📋 Revisa el tutorial completo antes de enseñar
-- 💻 Ejecuta el código para ver el resultado final
-- 📝 Prepara ejercicios adicionales basados en las sugerencias
-- 🛠️ Ten el entorno configurado en el aula
-
-#### **Durante la Clase:**
-- 🎯 Explica el objetivo antes de empezar
-- 👥 Codifica paso a paso con los estudiantes
-- ❓ Permite preguntas cada 10-15 minutos
-- 🔬 Dedica tiempo a experimentación al final
-
----
-
 ## 🐛 **Solución de Problemas Comunes**
 
 ### **🔧 Problemas de Instalación:**
