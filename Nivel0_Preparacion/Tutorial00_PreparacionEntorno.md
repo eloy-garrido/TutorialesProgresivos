@@ -12,7 +12,31 @@ En este tutorial aprenderás:
 **OBJETIVO FINAL:** Tener el entorno completamente preparado para programar en Java
 
 ---
+## 📋 PARTE 0: INSTALACIÓN de GIT
+1. Instala GIT desde [ Instala GIT desde [URL_ADDRESS Instala GIT desde [URL_ADDRESS-scm.com/downloads](URL_ADDRESSwnloads](https://git-scm.com/downloads)
+2. Sigue las instrucciones de instalación por defecto
+3. **MUY IMPORTANTE:** Durante la instalación, marca la opción **"Add to PATH"**
+4. Verifica la instalación:
+   - Abre una terminal/símbolo del sistema
+   - Escribe `git --version`
+   - Deberías ver algo como:
+   git version 2.48.1.windows.1
 
+---
+
+## 📋 PARTE 0.1: CLONAR REPOSITORIO DESDE GITHUB
+
+1. Abre una terminal/símbolo del sistema
+2. Navega a la carpeta donde deseas clonar el repositorio
+3. Ejecuta el siguiente comando:
+   ```bash
+   git clone https://github.com/eloy-garrido/TutorialesProgresivos.git
+   ```
+4. Verifica la clonación:
+   - Navega a la carpeta donde clonaste el repositorio
+   - Deberías ver una carpeta llamada `TutorialesProgresivos`
+
+---
 ## 📋 PARTE 1: INSTALACIÓN DEL SOFTWARE NECESARIO
 
 ### PASO 1: Instalar Java Development Kit (JDK)
