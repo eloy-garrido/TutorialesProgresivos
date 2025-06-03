@@ -22,6 +22,31 @@ Este proyecto contiene una serie de tutoriales progresivos diseñados para ense�
 
 ---
 
+## 📋 PARTE 0: INSTALACIÓN de GIT
+1. Instala GIT desde [ Instala GIT desde [URL_ADDRESS Instala GIT desde [URL_ADDRESS-scm.com/downloads](URL_ADDRESSwnloads](https://git-scm.com/downloads)
+2. Sigue las instrucciones de instalación por defecto
+3. **MUY IMPORTANTE:** Durante la instalación, marca la opción **"Add to PATH"**
+4. Verifica la instalación:
+   - Abre una terminal/símbolo del sistema
+   - Escribe `git --version`
+   - Deberías ver algo como:
+   git version 2.48.1.windows.1
+
+---
+
+## 📋 PARTE 0.1: CLONAR REPOSITORIO DESDE GITHUB
+
+1. Abre una terminal/símbolo del sistema
+2. Navega a la carpeta donde deseas clonar el repositorio
+3. Ejecuta el siguiente comando:
+   ```bash
+   git clone https://github.com/eloy-garrido/TutorialesProgresivos.git
+   ```
+4. Verifica la clonación:
+   - Navega a la carpeta donde clonaste el repositorio
+   - Deberías ver una carpeta llamada `TutorialesProgresivos`
+
+
 ## 📖 **¿Qué es Java Swing?**
 
 **Java Swing** es una biblioteca (conjunto de clases) que permite crear **interfaces gráficas de usuario (GUI)** en Java. Con Swing puedes crear:
