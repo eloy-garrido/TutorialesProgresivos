@@ -1,5 +1,40 @@
+# Tutorial 07: Piedra, Papel y Tijera - Versión Simple
+
+## 🎯 Objetivos de Este Tutorial
+
+En este tutorial aprenderás:
+- Implementar lógica de juego real
+- Usar arrays para opciones
+- Comparación de strings
+- Estructura de un juego completo simple
+
+**OBJETIVO FINAL:** Crear el famoso juego Piedra, Papel y Tijera contra la computadora
+
+---
+
+## 🎮 Las Reglas del Juego
+
+### **Reglas Clásicas:**
+- **Piedra** vence a **Tijera** (la rompe) 🪨 ✂️
+- **Papel** vence a **Piedra** (la cubre) 📄 🪨
+- **Tijera** vence a **Papel** (lo corta) ✂️ 📄
+- **Mismo elemento** = **Empate** 🤝
+
+### **Cómo Jugar:**
+1. **Tú eliges:** Piedra, Papel o Tijera
+2. **La computadora elige** aleatoriamente
+3. **Se comparan** las elecciones
+4. **Se determina el ganador** según las reglas
+
+---
+
+## 💻 El Código Completo
+
+Crea un archivo llamado `Tutorial07_PiedraPapelTijera_Simple.java`:
+
+```java
 /**
- * TUTORIAL 6: PIEDRA, PAPEL Y TIJERA - VERSIÓN SIMPLE
+ * TUTORIAL 7: PIEDRA, PAPEL Y TIJERA - VERSIÓN SIMPLE
  * 
  * En este tutorial aprenderemos:
  * - Implementar lógica de juego real
@@ -16,7 +51,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.Random;
 
-public class Tutorial06_PiedraPapelTijera_Simple {
+public class Tutorial07_PiedraPapelTijera_Simple {
     
     // PASO 1: VARIABLES DE INSTANCIA
     private JFrame ventana;
@@ -32,7 +67,7 @@ public class Tutorial06_PiedraPapelTijera_Simple {
     // Un array es como una lista numerada: posición 0=PIEDRA, 1=PAPEL, 2=TIJERA
     
     // PASO 3: CONSTRUCTOR
-    public Tutorial06_PiedraPapelTijera_Simple() {
+    public Tutorial07_PiedraPapelTijera_Simple() {
         random = new Random();
         crearInterfaz();
     }
@@ -228,77 +263,233 @@ public class Tutorial06_PiedraPapelTijera_Simple {
     }
     
     public static void main(String[] args) {
-        new Tutorial06_PiedraPapelTijera_Simple();
+        new Tutorial07_PiedraPapelTijera_Simple();
     }
 }
+```
 
-/*
- * CONCEPTOS NUEVOS QUE ACABAS DE APRENDER:
- * 
- * 1. ARRAYS (ARREGLOS):
- *    - String[] opciones = {"PIEDRA", "PAPEL", "TIJERA"}
- *    - Almacenan múltiples valores del mismo tipo
- *    - Se accede por índice: opciones[0], opciones[1], opciones[2]
- *    - Los índices empiezan en 0
- * 
- * 2. SWITCH STATEMENT:
- *    - Alternativa más clara a múltiples if-else
- *    - switch (variable) { case valor: ... break; }
- *    - default: para casos no contemplados
- * 
- * 3. HTML EN BOTONES:
- *    - <html><center>texto<br>más texto</center></html>
- *    - <br> hace salto de línea
- *    - <center> centra el texto
- * 
- * 4. COLORES PERSONALIZADOS:
- *    - new Color(rojo, verde, azul)
- *    - Valores de 0 a 255 para cada componente
- *    - Color.WHITE, Color.BLACK son constantes predefinidas
- * 
- * 5. MÉTODOS AUXILIARES:
- *    - configurarBoton() - evita repetir código
- *    - agregarEmoji() - separa responsabilidades
- *    - Un método debe hacer una sola cosa bien
- * 
- * 6. OPERADOR .equals():
- *    - Para comparar strings: texto1.equals(texto2)
- *    - NUNCA uses == para comparar strings
- *    - .contains() verifica si contiene una subcadena
- * 
- * 7. VARIABLES BOOLEANAS EN LÓGICA:
- *    - boolean jugadorGana = false
- *    - Ayuda a clarificar la lógica compleja
- *    - Hace el código más legible
- * 
- * 8. SETFOCUSPAINTED():
- *    - setFocusPainted(false) quita el borde de foco
- *    - Mejora la apariencia visual
- * 
- * LÓGICA DEL JUEGO:
- * - Piedra vence a Tijera (la rompe)
- * - Papel vence a Piedra (la cubre)
- * - Tijera vence a Papel (lo corta)
- * - Si ambos eligen lo mismo = Empate
- * 
- * FLUJO DEL PROGRAMA:
- * 1. Usuario hace clic en un botón (Piedra, Papel o Tijera)
- * 2. Se ejecuta jugar() con la elección del usuario
- * 3. La computadora elige aleatoriamente
- * 4. Se muestran ambas elecciones
- * 5. Se determina el ganador usando las reglas
- * 6. Se muestra el resultado con color apropiado
- * 7. Usuario puede jugar otra vez o reiniciar
- * 
- * EXPERIMENTACIÓN:
- * - Agrega un contador de victorias, derrotas y empates
- * - Cambia los emojis por otros
- * - Agrega sonidos de victoria/derrota
- * - Implementa "mejor de 3" o "mejor de 5"
- * - Agrega una variante con más opciones (Lagarto, Spock)
- * - Cambia los colores de los botones
- * - Agrega animaciones simples
- * - Implementa diferentes niveles de dificultad
- * - ¿Qué pasa si cambias el array opciones?
- * - ¿Qué pasa si eliminas el break en el switch?
- */
+---
+
+## 🔍 **Conceptos Nuevos Que Acabas de Aprender:**
+
+### 1. **Arrays (Arreglos)** - Listas de Elementos
+```java
+String[] opciones = {"PIEDRA", "PAPEL", "TIJERA"};
+```
+- **Arrays** almacenan múltiples valores del mismo tipo
+- Se accede por **índice**: `opciones[0]`, `opciones[1]`, `opciones[2]`
+- Los **índices empiezan en 0**
+- `opciones[0]` = "PIEDRA", `opciones[1]` = "PAPEL", `opciones[2]` = "TIJERA"
+
+### 2. **Switch Statement** - Alternativa a Múltiples if-else
+```java
+switch (opcion) {
+    case "PIEDRA":
+        return "🪨 " + opcion;
+    case "PAPEL":
+        return "📄 " + opcion;
+    case "TIJERA":
+        return "✂️ " + opcion;
+    default:
+        return opcion;
+}
+```
+- **switch** es más claro que múltiples if-else
+- **case** para cada valor posible
+- **break** termina cada caso (aquí no es necesario porque usamos return)
+- **default** para casos no contemplados
+
+### 3. **HTML en Botones** - Texto Multilínea
+```java
+JButton boton = new JButton("<html><center>🪨<br>PIEDRA</center></html>");
+```
+- `<html>` permite usar HTML básico en componentes Swing
+- `<center>` centra el texto
+- `<br>` hace salto de línea
+- Permite crear botones más atractivos visualmente
+
+### 4. **Colores Personalizados** - new Color()
+```java
+new Color(139, 69, 19);    // Marrón (rojo, verde, azul)
+new Color(0, 150, 0);      // Verde
+```
+- **new Color(rojo, verde, azul)** crea colores personalizados
+- Valores de **0 a 255** para cada componente
+- `Color.WHITE`, `Color.BLACK` son constantes predefinidas
+
+### 5. **Métodos Auxiliares** - Organización del Código
+```java
+private void configurarBoton(JButton boton, Font fuente, Dimension tamaño, Color color) {
+    // Configuración común para todos los botones
+}
+```
+- **configurarBoton()** evita repetir código
+- **agregarEmoji()** separa responsabilidades
+- **Un método debe hacer una sola cosa bien**
+
+### 6. **Operador .equals()** - Comparación de Strings
+```java
+if (jugador.equals(computadora)) {
+    return "¡EMPATE!";
+}
+```
+- **SIEMPRE** usar `.equals()` para comparar strings
+- **NUNCA** uses `==` para comparar strings
+- `.contains()` verifica si contiene una subcadena
+
+### 7. **Variables Booleanas** - Clarificar Lógica
+```java
+boolean jugadorGana = false;
+if (jugador.equals("PIEDRA") && computadora.equals("TIJERA")) {
+    jugadorGana = true;
+}
+```
+- **boolean** ayuda a clarificar lógica compleja
+- Hace el código más legible y fácil de entender
+
+---
+
+## 🎮 **Lógica del Juego - Análisis Detallado:**
+
+### **Tabla de Resultados:**
+| Jugador | Computadora | Resultado |
+|---------|-------------|-----------|
+| Piedra  | Piedra      | Empate    |
+| Piedra  | Papel       | Derrota   |
+| Piedra  | Tijera      | Victoria  |
+| Papel   | Piedra      | Victoria  |
+| Papel   | Papel       | Empate    |
+| Papel   | Tijera      | Derrota   |
+| Tijera  | Piedra      | Derrota   |
+| Tijera  | Papel       | Victoria  |
+| Tijera  | Tijera      | Empate    |
+
+### **Flujo del Programa:**
+1. **Usuario hace clic** en un botón (Piedra, Papel o Tijera)
+2. **Se ejecuta jugar()** con la elección del usuario
+3. **La computadora elige** aleatoriamente usando el array
+4. **Se muestran ambas elecciones** con emojis
+5. **Se determina el ganador** usando las reglas del juego
+6. **Se muestra el resultado** con color apropiado
+7. **Usuario puede jugar otra vez** o reiniciar
+
+---
+
+## 🎨 **Detalles de Interfaz - Mejores Prácticas:**
+
+### **Colores Temáticos:**
+- **Verde** para victorias (positivo)
+- **Rojo** para derrotas (negativo)  
+- **Naranja** para empates (neutral)
+- **Azul** para títulos (informativo)
+
+### **Fuentes y Tamaños:**
+- **Título:** Arial Bold 20px
+- **Botones:** Arial Bold 16px
+- **Resultados:** Arial Bold 14-16px
+
+### **Espaciado y Márgenes:**
+```java
+panelBotones.setBorder(BorderFactory.createEmptyBorder(30, 30, 30, 30));
+```
+- **createEmptyBorder(arriba, izquierda, abajo, derecha)**
+- Mejora la apariencia visual
+- Evita que los componentes estén "pegados"
+
+---
+
+## 🧪 **Experimentación Sugerida**
+
+### **Experimentos Básicos:**
+1. **Agregar contador de puntuación**
+   ```java
+   private int victoriasJugador = 0;
+   private int victoriasComputadora = 0;
+   ```
+
+2. **Cambiar emojis y colores**
+   - Usa diferentes emojis para cada opción
+   - Experimenta con otros colores
+
+3. **Modificar el array de opciones**
+   ```java
+   String[] opciones = {"🪨 ROCA", "📜 PERGAMINO", "🗡️ ESPADA"};
+   ```
+
+### **Experimentos Intermedios:**
+4. **Implementar "mejor de 3" o "mejor de 5"**
+5. **Agregar más opciones** (Lagarto, Spock del Big Bang Theory)
+6. **Historial de jugadas** - mostrar últimas 5 partidas
+7. **Estadísticas** - porcentaje de victorias
+
+### **Desafíos Avanzados:**
+8. **Diferentes niveles de dificultad** de la IA
+9. **Modo multijugador** (dos humanos)
+10. **Guardar estadísticas** en un archivo
+11. **Animaciones** simples en los botones
+
+### **Preguntas para Investigar:**
+- ¿Qué pasa si cambias el tamaño del array opciones?
+- ¿Qué pasa si eliminas el `break` en el switch?
+- ¿Cómo harías para que la computadora "haga trampa"?
+- ¿Puedes hacer que los botones cambien de color al hacer hover?
+
+---
+
+## ✅ **Verificación de Comprensión**
+
+Antes de continuar, asegúrate de que puedes:
+
+- ✅ **Explicar** cómo funcionan los arrays y sus índices
+- ✅ **Usar** switch statement correctamente
+- ✅ **Implementar** lógica de juego con condiciones múltiples
+- ✅ **Comparar strings** usando .equals()
+- ✅ **Crear** métodos auxiliares para organizar código
+- ✅ **Entender** el flujo completo del juego
+
+---
+
+## 🚀 **¡Felicidades! Has Completado el Nivel 2**
+
+¡Increíble! Has creado un **juego completo y funcional** de Piedra, Papel y Tijera. Has dominado:
+
+- **Variables de instancia** y constructores
+- **Eventos** y ActionListeners  
+- **Layouts** y organización visual
+- **Validación** de entrada del usuario
+- **Lógica de juego** y condiciones complejas
+- **Arrays** y números aleatorios
+- **Métodos auxiliares** y organización del código
+
+### **Próximos Pasos:**
+El **Nivel 3 (Avanzado)** incluirá:
+- Aplicaciones con múltiples ventanas
+- Persistencia de datos (guardar/cargar)
+- Arquitectura más compleja (MVC)
+- Componentes avanzados (JTable, JTree, JMenu)
+- Proyectos de nivel profesional
+
+---
+
+## 🛠️ **Solución de Problemas Comunes**
+
+### ❌ **Error: "Array index out of bounds"**
+```
+Solución: Verifica que el índice del array esté dentro del rango.
+Para array de 3 elementos, usa índices 0, 1, 2.
+```
+
+### ❌ **Error: Switch statement sin break**
+```
+Solución: Si usas switch sin return, agrega break después de cada case.
+```
+
+### ❌ **Error: Strings no se comparan correctamente**
+```
+Solución: Usa .equals() en lugar de == para comparar strings.
+```
+
+### ❌ **Error: Colores no aparecen**
+```
+Solución: Verifica que hayas llamado a setForeground() después de setText().
+```

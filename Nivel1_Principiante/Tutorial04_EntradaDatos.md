@@ -1,3 +1,23 @@
+# Tutorial 04: Entrada de Datos - Campos de Texto
+
+## 🎯 Objetivos de Este Tutorial
+
+En este tutorial aprenderás:
+- ¿Qué es un JTextField?
+- Cómo obtener texto que escribe el usuario
+- Convertir texto a números
+- Manejar errores básicos
+- BorderLayout para organizar componentes
+
+**OBJETIVO FINAL:** Crear una calculadora simple de suma
+
+---
+
+## 💻 El Código Completo
+
+Crea un archivo llamado `Tutorial04_EntradaDatos.java`:
+
+```java
 /**
  * TUTORIAL 4: ENTRADA DE DATOS - CAMPOS DE TEXTO
  * 
@@ -145,58 +165,197 @@ public class Tutorial04_EntradaDatos {
         new Tutorial04_EntradaDatos();
     }
 }
+```
 
-/*
- * CONCEPTOS NUEVOS QUE ACABAS DE APRENDER:
- * 
- * 1. JTextField:
- *    - Permite al usuario escribir texto
- *    - getText() obtiene el texto escrito
- *    - setText() cambia el texto mostrado
- *    - setFont() cambia la apariencia del texto
- * 
- * 2. BorderLayout:
- *    - Divide la ventana en 5 áreas: NORTH, SOUTH, EAST, WEST, CENTER
- *    - ventana.add(componente, BorderLayout.NORTH)
- *    - Muy útil para interfaces organizadas
- * 
- * 3. Conversión de tipos:
- *    - Integer.parseInt() - texto a entero
- *    - Double.parseDouble() - texto a decimal
- *    - String.valueOf() - número a texto
- *    - String.format() - formatear números
- * 
- * 4. Manejo de errores (try-catch):
- *    - try { } - código que puede fallar
- *    - catch (TipoDeError ex) { } - qué hacer si falla
- *    - NumberFormatException - error al convertir texto a número
- * 
- * 5. JOptionPane con tipos de mensaje:
- *    - JOptionPane.ERROR_MESSAGE - mensaje de error
- *    - JOptionPane.INFORMATION_MESSAGE - mensaje informativo
- *    - JOptionPane.WARNING_MESSAGE - mensaje de advertencia
- * 
- * 6. Separación de responsabilidades:
- *    - crearInterfaz() - solo crea la interfaz
- *    - realizarSuma() - solo hace los cálculos
- *    - Cada método tiene una responsabilidad específica
- * 
- * FLUJO DEL PROGRAMA:
- * 1. Usuario escribe números en los campos
- * 2. Usuario presiona el botón SUMAR
- * 3. Se ejecuta realizarSuma()
- * 4. Se obtiene el texto de los campos
- * 5. Se convierte el texto a números
- * 6. Se realiza la suma
- * 7. Se muestra el resultado
- * 8. Si hay error, se muestra mensaje de error
- * 
- * EXPERIMENTACIÓN:
- * - Agrega botones para restar, multiplicar y dividir
- * - Agrega un botón "LIMPIAR" que borre los campos
- * - Haz que al presionar Enter en un campo se ejecute la suma
- * - Agrega validación para división por cero
- * - Cambia los colores de los campos de texto
- * - ¿Qué pasa si escribes letras en lugar de números?
- * - ¿Qué pasa si dejas un campo vacío?
- */
+---
+
+## 🔍 **Conceptos Importantes Que Acabas de Aprender:**
+
+### 1. **JTextField** - Campos de Texto para Entrada del Usuario
+```java
+JTextField campoNumero1 = new JTextField();
+```
+- **JTextField** permite al usuario escribir texto
+- **getText()** obtiene el texto que escribió el usuario
+- **setText()** cambia el texto mostrado en el campo
+- **setFont()** cambia la apariencia del texto
+
+### 2. **BorderLayout** - Organización en 5 Áreas
+```java
+ventana.setLayout(new BorderLayout());
+ventana.add(panelSuperior, BorderLayout.NORTH);    // Arriba
+ventana.add(panelCentral, BorderLayout.CENTER);    // Centro  
+ventana.add(panelInferior, BorderLayout.SOUTH);    // Abajo
+```
+- **BorderLayout** divide la ventana en 5 áreas:
+  - **NORTH** (arriba)
+  - **SOUTH** (abajo) 
+  - **EAST** (derecha)
+  - **WEST** (izquierda)
+  - **CENTER** (centro)
+
+### 3. **Conversión de Tipos** - De Texto a Números
+```java
+String texto1 = campoNumero1.getText();        // Obtener texto
+double numero1 = Double.parseDouble(texto1);   // Convertir a número
+String resultado = String.format("%.2f", suma); // Formatear resultado
+```
+- **Integer.parseInt()** - convierte texto a número entero
+- **Double.parseDouble()** - convierte texto a número decimal
+- **String.valueOf()** - convierte número a texto
+- **String.format("%.2f", numero)** - formatea números con decimales
+
+### 4. **Manejo de Errores** - try-catch
+```java
+try {
+    // Código que puede fallar
+    double numero = Double.parseDouble(texto);
+} catch (NumberFormatException ex) {
+    // Qué hacer si falla
+    JOptionPane.showMessageDialog(ventana, "Error: ingresa un número válido");
+}
+```
+- **try { }** - código que puede causar error
+- **catch (TipoDeError ex) { }** - qué hacer si ocurre el error
+- **NumberFormatException** - error específico al convertir texto a número
+
+### 5. **JOptionPane con Tipos de Mensaje**
+```java
+JOptionPane.showMessageDialog(ventana, "mensaje", "título", JOptionPane.ERROR_MESSAGE);
+```
+- **JOptionPane.ERROR_MESSAGE** - mensaje de error (ícono rojo)
+- **JOptionPane.INFORMATION_MESSAGE** - mensaje informativo (ícono azul)
+- **JOptionPane.WARNING_MESSAGE** - mensaje de advertencia (ícono amarillo)
+
+---
+
+## 🎮 **Flujo del Programa:**
+
+### **Secuencia de Eventos:**
+1. **Usuario escribe números** en los campos de texto
+2. **Usuario presiona el botón SUMAR**
+3. **Se ejecuta realizarSuma()**
+4. **Se obtiene el texto** de los campos con `getText()`
+5. **Se convierte el texto a números** con `parseDouble()`
+6. **Se realiza la suma**
+7. **Se muestra el resultado** en la etiqueta
+8. **Si hay error**, se muestra mensaje explicativo
+
+### **Manejo de Errores:**
+- Si el usuario escribe **letras** → Error de conversión
+- Si el usuario deja un campo **vacío** → Error de conversión  
+- Si el usuario escribe **símbolos extraños** → Error de conversión
+- En todos los casos, se muestra un mensaje claro explicando el problema
+
+---
+
+## 🏗️ **Arquitectura del Código - Separación de Responsabilidades**
+
+### **crearInterfaz()** - Solo Crea la Interfaz
+- Crea ventana y componentes
+- Configura layouts y apariencia
+- Conecta eventos con métodos
+
+### **realizarSuma()** - Solo Hace Cálculos
+- Obtiene datos de la interfaz
+- Realiza operaciones matemáticas
+- Maneja errores de conversión
+- Actualiza resultados en la interfaz
+
+### **¿Por Qué Separar?**
+- **Código más organizado** y fácil de leer
+- **Fácil de modificar** cada parte independientemente
+- **Fácil de probar** cada función por separado
+- **Reutilizable** - puedes usar realizarSuma() desde otros lugares
+
+---
+
+## 🧪 **Experimentación Sugerida**
+
+### **Experimentos Básicos:**
+1. **Agrega más operaciones**
+   ```java
+   JButton botonRestar = new JButton("RESTAR");
+   JButton botonMultiplicar = new JButton("MULTIPLICAR");
+   JButton botonDividir = new JButton("DIVIDIR");
+   ```
+
+2. **Agrega un botón LIMPIAR**
+   ```java
+   JButton botonLimpiar = new JButton("LIMPIAR");
+   botonLimpiar.addActionListener(e -> {
+       campoNumero1.setText("");
+       campoNumero2.setText("");
+       etiquetaResultado.setText("---");
+   });
+   ```
+
+3. **Cambia los colores de los campos**
+   ```java
+   campoNumero1.setBackground(Color.LIGHT_GRAY);
+   campoNumero2.setBackground(Color.LIGHT_GRAY);
+   ```
+
+### **Experimentos Avanzados:**
+4. **Agrega validación para división por cero**
+5. **Haz que Enter ejecute la operación**
+6. **Agrega un historial de operaciones**
+7. **Permite números negativos y decimales**
+
+### **Preguntas para Investigar:**
+- ¿Qué pasa si escribes letras en lugar de números?
+- ¿Qué pasa si dejas un campo vacío?
+- ¿Puedes usar Integer.parseInt() en lugar de Double.parseDouble()?
+- ¿Qué ocurre si cambias el layout a GridLayout?
+
+---
+
+## ✅ **Verificación de Comprensión**
+
+Antes de continuar, asegúrate de que puedes:
+
+- ✅ **Crear y usar** JTextField para entrada de datos
+- ✅ **Organizar componentes** usando BorderLayout
+- ✅ **Convertir texto a números** y manejar errores
+- ✅ **Separar la lógica** en métodos específicos
+- ✅ **Usar try-catch** para manejar errores básicos
+- ✅ **Formatear números** para mostrar resultados
+
+---
+
+## 🚀 **Siguiente Paso**
+
+¡Excelente! Ya sabes cómo crear aplicaciones que **reciben datos del usuario** y **realizan cálculos**. Este es un gran paso hacia aplicaciones más complejas.
+
+En el próximo tutorial del Nivel 2, aprenderemos conceptos más avanzados y crearemos aplicaciones más sofisticadas.
+
+**Próximo:** Tutorial 05 - Campo de Texto Avanzado (Nivel 2)
+
+---
+
+## 🛠️ **Solución de Problemas Comunes**
+
+### ❌ **Error: "Cannot find symbol JTextField"**
+```
+Solución: Agrega el import correcto:
+import javax.swing.JTextField;
+```
+
+### ❌ **Error: NumberFormatException al ejecutar**
+```
+Solución: El usuario escribió algo que no es un número.
+Asegúrate de tener el try-catch implementado.
+```
+
+### ❌ **Error: Los componentes no se organizan bien**
+```
+Solución: Verifica que estés usando BorderLayout correctamente:
+ventana.setLayout(new BorderLayout());
+ventana.add(componente, BorderLayout.NORTH);
+```
+
+### ❌ **Error: getText() devuelve null**
+```
+Solución: Asegúrate de que el JTextField esté inicializado:
+campoNumero1 = new JTextField();
+```
